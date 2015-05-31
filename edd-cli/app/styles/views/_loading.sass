@@ -1,0 +1,37 @@
+// Keyframes
++keyframes(loading-ellipsis)
+  from
+    opacity: .5
+    +transform(scale(1))
+  to
+    opacity: 1
+    +transform(scale(1.5))
+
+.loading-ellipsis
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  height: 6em
+  text-align: center
+  margin: auto
+  white-space: nowrap
+
+  h1
+    display: none
+
+  span
+    display: inline-block
+    width: 1em
+    height: 1em
+    border-radius: 1em
+    background: material-color('blue-grey', '100')
+    margin: 0 .25em
+    +animation(loading-ellipsis 600ms ease-in-out infinite alternate both)
+
+    &:nth-of-type(2)
+      +animation-delay(200ms)
+
+    &:nth-of-type(3)
+      +animation-delay(400ms)

@@ -1,0 +1,21 @@
+{{#if prevSlideId}}
+  {{#link-to 'slides.slide' prevSlideId class='slides-nav-control prev-slide'}}<span>Previous</span>{{/link-to}}
+{{/if}}
+
+{{#if nextSlideId}}
+  {{#link-to 'slides.slide' nextSlideId class='slides-nav-control next-slide'}}<span>Next</span>{{/link-to}}
+{{/if}}
+
+{{#if showSlideNumber}}
+  <div id='current-slide-number' class='hidden'>{{currentSlideHumanizedIndex}}</div>
+{{/if}}
+
+{{#if showProgressBar}}
+  <ul class='hidden'>
+    {{#each slidesProxy as |slide|}}
+      <li {{bind-attr class='slide.visited'}} style="{{slide.markerStyle}}">
+        {{#link-to 'slides.slide' slide.id}}<span>{{slide.id}}</span>{{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}
