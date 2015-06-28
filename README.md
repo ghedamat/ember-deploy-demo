@@ -6,9 +6,9 @@ An example project for deploying ember applications
 
 There are a lot of good resources out there on how to deploy ember apps following the strategy suggested by [Luke Melia at EmberConf 2015](https://www.youtube.com/watch?v=4EDetv_Rw5U).
 
-The [ember-cli-deploy](https://github.com/ember-cli/ember-cli-deploy) addon takes you 99% of the way there and makes this deploy strategy super simple.
+The [ember-cli-deploy](https://github.com/ember-cli/ember-cli-deploy) addon takes you 99% of the way there and makes this deploy method super simple.
 
-This project puts together all the pieces and show an example workflow that allows you to use Redis/Cloudfront to serve your app in Production but also to use Redis in development as well, avoiding the need to proxy from ember to your server side api.
+This project puts together all the pieces and show an example workflow that allows you to use Redis/Cloudfront to serve your app in production but also to use Redis in development as well, avoiding the need to proxy from ember to your server side api.
 
 ## Live Demo/Slides
 
@@ -25,4 +25,4 @@ Please let me know what you think!
 @lukemelia
 @levelbossmike
 @elucid
-and all the other contributors
+and all the other contributors to ember-cli-deploy
