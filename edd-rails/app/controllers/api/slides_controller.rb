@@ -1,15 +1,18 @@
 class Api::SlidesController < ActionController::Base
 
   def index
-    render json: {slides: Slide.all.map(&method(:serialize))}
+    render json: {data: Slide.all.map(&method(:serialize))}
   end
 
   private
 
   def serialize(slide)
     {
+      type: "slides",
       id: slide.id,
-      body: slide.body
+      attributes: {
+        body: slide.body
+      }
     }
   end
 end
