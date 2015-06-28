@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.find('slide');
+    return this.store.findAll('slide');
   },
 
   actions: {
