@@ -1,5 +1,5 @@
-{{#liquid-with model as slide class='slides-container' enableGrowth=false}}
+{{#liquid-bind model class='slides-container' enableGrowth=false as |slide|}}
   <div class='slide slide-{{slide.id}}'>
     {{{slide.body}}}
   </div>
-{{/liquid-with}}
+{{/liquid-bind}}
