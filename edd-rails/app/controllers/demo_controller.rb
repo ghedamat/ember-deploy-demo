@@ -4,9 +4,9 @@ class DemoController < ApplicationController
     index_key = if Rails.env.development?
                   'edd-cli:__development__'
                 elsif fetch_revision
-                  "edd-cli:#{fetch_revision}"
+                  "edd-cli:index:#{fetch_revision}"
                 else
-                  Sidekiq.redis { |r| r.get('edd-cli:current') }
+                  Sidekiq.redis { |r| "edd-cli:index:#{r.get('edd-cli:index:current')}" }
                 end
     index = Sidekiq.redis { |r| r.get(index_key) }
     render text: add_token_to_index(index), layout: false
