@@ -22,7 +22,7 @@ module.exports = function(defaults) {
     break;
   }
 
-  var app = new EmberApp({
+  var app = new EmberApp(defaults, {
     fingerprint: fingerprintOptions,
 
     sourcemaps: {
