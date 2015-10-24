@@ -24,7 +24,10 @@ module.exports = function(defaults) {
 
   var app = new EmberApp(defaults, {
     fingerprint: fingerprintOptions,
-
+    emberCLIDeploy: {
+      runOnPostBuild: (env === 'development') ? 'development-postbuild' : false,
+      shouldActivate: true
+    },
     sourcemaps: {
       enabled: !isProductionLikeBuild,
     },

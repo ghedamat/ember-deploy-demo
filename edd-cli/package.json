@@ -19,18 +19,19 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "broccoli-asset-rev": "^2.0.2",
+    "broccoli-asset-rev": "2.0.6",
     "broccoli-sass": "^0.6.6",
     "connect-restreamer": "^1.0.2",
     "cors": "^2.7.1",
     "dotenv": "^1.1.0",
-    "ember-cli": "1.13.7",
+    "ember-cli": "1.13.8",
     "ember-cli-app-version": "0.4.0",
     "ember-cli-babel": "^5.0.0",
     "ember-cli-content-security-policy": "0.4.0",
     "ember-cli-dependency-checker": "^1.0.0",
-    "ember-cli-deploy": "^0.4.1",
-    "ember-cli-redis-proxy": "^0.2.0",
+    "ember-cli-deploy": "0.5.0-beta.3",
+    "ember-cli-deploy-lightning-pack": "0.2.0-beta.6",
+    "ember-cli-deploy-ssh-tunnel": "0.1.0",
     "ember-cli-htmlbars": "0.7.9",
     "ember-cli-htmlbars-inline-precompile": "^0.1.1",
     "ember-cli-ic-ajax": "0.2.1",
@@ -39,11 +40,9 @@
     "ember-cli-release": "0.2.3",
     "ember-cli-sri": "^1.0.1",
     "ember-cli-uglify": "^1.0.1",
-    "ember-deploy-redis": "0.0.7",
-    "ember-deploy-s3": "0.0.5",
     "ember-data": "1.13.7",
     "ember-disable-proxy-controllers": "^1.0.0",
-    "liquid-fire": "0.21.2",
-    "ember-export-application-global": "^1.0.3"
+    "ember-export-application-global": "^1.0.3",
+    "liquid-fire": "0.21.2"
   }
 }

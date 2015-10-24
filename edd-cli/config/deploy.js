@@ -1,48 +1,69 @@
-require('dotenv').load();
-module.exports = {
-  development: {
-    buildEnv: 'development',
-    store: {
-      type: 'redis',  // this can be omitted because it is the default
-      host: 'localhost',
-      port: 6379
-    }
-  },
+module.exports = function(deployTarget) {
+  var ENV = {};
 
-  staging: {
-    buildEnv: 'staging', // Override the environment passed to the ember asset build. Defaults to 'production'
-    store: {
-      type: 'redis',
+  if (deployTarget === 'development-postbuild') {
+    ENV.plugins = ['redis'];
+
+    ENV.build = {
+      environment: 'development'
+    };
+
+    ENV.redis = {
+      keyPrefix: 'edd-cli',
+      revisionKey: '__development__',
+      allowOverwrite: true,
+      host: 'localhost', // this can be omitted because it is the default
+      port: 6379, // this can be omitted because it is the default
+      distDir: function(context) {
+        return context.commandOptions.buildDir;
+      }
+    };
+  }
+
+  if (deployTarget === 'staging') {
+    ENV.build = {
+      environment: 'staging',
+    };
+    // configure other plugins for staging deploy target here
+    ENV.redis = {
+      allowOverwrite: true,
       host: process.env['STAGING_HOST'],
       port: process.env['STAGING_PORT'],
-      ssh: {
-        username: process.env['STAGING_USERNAME'],
-        privateKey: process.env['STAGING_KEY_PATH']
-      }
-    },
-    assets: {
+    };
+    ENV.s3 = {
       accessKeyId: process.env['AWS_ACCESS_KEY'],
       secretAccessKey: process.env['AWS_SECRET_KEY'],
       bucket: 'edd-staging'
-    }
-  },
+    };
+  }
 
-  production: {
-    buildEnv: 'production', // Override the environment passed to the ember asset build. Defaults to 'production'
-    store: {
-      type: 'redis',
-      host: process.env['PRODUCTION_HOST'],
-      port: process.env['PRODUCTION_PORT'],
-      ssh: {
-        username: process.env['PRODUCTION_USERNAME'],
-        privateKey: process.env['PRODUCTION_KEY_PATH']
-      }
-    },
-    assets: {
+  if (deployTarget === 'production') {
+    ENV.build = {
+      environment: 'production',
+    };
+    // configure other plugins for production deploy target here
+    //
+    ENV['ssh-tunnel'] = {
+      username: process.env['SSH_USERNAME'],
+      host: process.env['REDIS_HOST'],
+      srcPort: process.env['REDIS_PORT']
+    };
+
+    ENV.redis = {
+      allowOverwrite: true,
+      host: 'localhost',
+      port: process.env['REDIS_PORT']
+    };
+    ENV.s3 = {
       accessKeyId: process.env['AWS_ACCESS_KEY'],
       secretAccessKey: process.env['AWS_SECRET_KEY'],
       bucket: 'edd-production'
     }
-
   }
+
+  // Note: if you need to build some configuration asynchronously,ou can return
+  // a promise that resolves with the ENV object instead of returning the
+  // ENV object synchronously.
+  return ENV;
+
 };
