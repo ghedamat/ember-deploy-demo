@@ -21,8 +21,6 @@
   "devDependencies": {
     "broccoli-asset-rev": "2.0.6",
     "broccoli-sass": "^0.6.6",
-    "connect-restreamer": "^1.0.2",
-    "cors": "^2.7.1",
     "dotenv": "^1.1.0",
     "ember-cli": "1.13.8",
     "ember-cli-app-version": "0.4.0",
