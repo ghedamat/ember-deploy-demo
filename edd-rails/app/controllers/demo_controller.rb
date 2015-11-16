@@ -1,5 +1,6 @@
 class DemoController < ApplicationController
   SHORT_UUID_V4_REGEXP = /\A[0-9a-f]{7}\z/i
+
   def index
     index_key = if Rails.env.development?
                   'edd-cli:__development__'
@@ -9,7 +10,7 @@ class DemoController < ApplicationController
                   Sidekiq.redis { |r| "edd-cli:index:#{r.get('edd-cli:index:current')}" }
                 end
     index = Sidekiq.redis { |r| r.get(index_key) }
-    render text: add_token_to_index(index), layout: false
+    render text: process_index(index), layout: false
   end
 
   private
@@ -21,10 +22,13 @@ class DemoController < ApplicationController
     end
   end
 
-  def add_token_to_index(index)
+  def process_index(index)
     return "INDEX NOT FOUND" unless index
-    token = form_authenticity_token
-    index.sub(/CSRF_TOKEN/, token)
+
+    index.sub!(/CSRF_TOKEN/, form_authenticity_token)
+    index.sub!('/ember-cli-live-reload', 'http://localhost:4200/ember-cli-live-reload')
+
+    index
   end
 end
 
