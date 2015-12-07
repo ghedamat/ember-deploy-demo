@@ -9,7 +9,7 @@ module.exports = function(deployTarget) {
     };
 
     ENV.redis = {
-      keyPrefix: 'edd-cli',
+      keyPrefix: 'edd-cli:index',
       revisionKey: '__development__',
       allowOverwrite: true,
       host: 'localhost', // this can be omitted because it is the default
@@ -26,6 +26,7 @@ module.exports = function(deployTarget) {
     };
     // configure other plugins for staging deploy target here
     ENV.redis = {
+      keyPrefix: 'edd-cli:index',
       allowOverwrite: true,
       host: process.env['STAGING_HOST'],
       port: process.env['STAGING_PORT'],
@@ -51,6 +52,7 @@ module.exports = function(deployTarget) {
     };
 
     ENV.redis = {
+      keyPrefix: 'edd-cli:index',
       allowOverwrite: true,
       host: 'localhost',
       port: process.env['REDIS_PORT']
