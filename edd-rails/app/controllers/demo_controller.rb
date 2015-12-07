@@ -3,7 +3,7 @@ class DemoController < ApplicationController
 
   def index
     index_key = if Rails.env.development?
-                  'edd-cli:__development__'
+                  'edd-cli:index:__development__'
                 elsif fetch_revision
                   "edd-cli:index:#{fetch_revision}"
                 else
