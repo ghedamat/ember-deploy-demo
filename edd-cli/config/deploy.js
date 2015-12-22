@@ -24,6 +24,7 @@ module.exports = function(deployTarget) {
     ENV.build = {
       environment: 'staging',
     };
+
     // configure other plugins for staging deploy target here
     ENV.redis = {
       keyPrefix: 'edd-cli:index',
@@ -34,8 +35,8 @@ module.exports = function(deployTarget) {
     ENV.s3 = {
       accessKeyId: process.env['AWS_ACCESS_KEY'],
       secretAccessKey: process.env['AWS_SECRET_KEY'],
-      bucket: 'edd-staging',
-      region: 'us-east-1'
+      region: 'us-east-1',
+      bucket: 'edd-staging'
     };
   }
 
@@ -60,7 +61,7 @@ module.exports = function(deployTarget) {
     ENV.s3 = {
       accessKeyId: process.env['AWS_ACCESS_KEY'],
       secretAccessKey: process.env['AWS_SECRET_KEY'],
-      bucket: 'edd-staging',
+      bucket: 'edd-production',
       region: 'us-east-1'
     }
   }
