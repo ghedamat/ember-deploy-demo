@@ -1,0 +1,56 @@
+// Icons Font
+@include font-face("fauxnamic-sites-icons", "fonts/fauxnamic-sites-icons/1/fauxnamic-sites-icons", $file-formats: eot woff ttf svg);
+$fauxnamic-sites-icons: "fauxnamic-sites-icons";
+
+// Logos
+$logos: (
+  'unspace': '\e800'
+);
+
+// Icons
+$icons: (
+  'chevron-down': '\e801',
+  'chevron-left': '\e802',
+  'chevron-right': '\e803',
+  'chevron-up': '\e804',
+  'twitter': '\e805',
+  'github': '\e806',
+  'check': '\e807',
+  'cancel': '\e808',
+  'link': '\e809',
+  'code': '\e80a',
+  'mail': '\e80b',
+  'grid': '\e80c'
+);
+
+// Base icon styles
+%icon {
+  font-family: $fauxnamic-sites-icons;
+  font-weight: normal;
+  @include font-smoothing(antialiased)
+}
+
+// functions
+@function icon($icon-name) {
+  @return map-get($icons, $icon-name);
+}
+
+@function logo($logo-name) {
+  @return map-get($logos, $logo-name);
+}
+
+// mixins
+@mixin icon($icon-name: false) {
+  @extend %icon;
+  @if $icon-name {
+    content: icon($icon-name);
+  }
+}
+
+// mixins
+@mixin logo($logo-name: false) {
+  @extend %icon;
+  @if $logo-name {
+    content: logo($logo-name);
+  }
+}

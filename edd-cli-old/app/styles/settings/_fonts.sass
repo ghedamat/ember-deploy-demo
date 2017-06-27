@@ -1,0 +1,14 @@
+=font-smoothing($value)
+  @if $value == antialiased
+    -webkit-font-smoothing:   antialiased
+    -moz-osx-font-smoothing:  greyscale
+  @else if $value == none
+    -webkit-font-smoothing:   none
+    -moz-osx-font-smoothing:  none
+  @else
+    -webkit-font-smoothing:   subpixel-antialiased
+    -moz-osx-font-smoothing:  auto
+
+$helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif
+$roboto: 'Roboto', $helvetica
+$montserrat: 'Montserrat', $helvetica
