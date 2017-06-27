@@ -1,0 +1,50 @@
+#main-logo {
+  font-size: 1.25em;
+  margin: 0;
+  z-index: 9999;
+
+  @include font-smoothing(antialiased);
+  @include transition(font-size 150ms);
+
+  @media only screen and (min-width: 769px) {
+    left: 20px;
+    font-size: 1.5em;
+  }
+
+  @media only screen and (min-width: 961px) {
+    font-size: 1.75em;
+  }
+
+  a {
+    display: block;
+    padding: 0.5em 0;
+    margin: 0;
+    overflow: hidden;
+    color: material-color("blue-grey", "50");
+
+    @include size(4.125em 1.25em);
+    @include transition-property(color box-shadow background-color transform);
+    @include transition-duration(150ms);
+
+    &:before {
+      display: block;
+
+      @include logo("unspace");
+    }
+
+    &:hover {
+      color: material-color("red");
+
+      @include transform(scale(1.025));
+    }
+
+    &:active {
+      color: material-color("red", "700");
+      background-color: material-color("grey", "100");
+      box-shadow: none;
+
+      @include transform(scale(1));
+      @include transition-duration(0ms);
+    }
+  }
+}

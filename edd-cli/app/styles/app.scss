@@ -1,0 +1,22 @@
+// Vendor
+@import "bourbon";
+@import "node_modules/sass-material-colors/sass/sass-material-colors";
+
+// Settings
+@import "settings/fonts";
+@import "settings/icons";
+@import "settings/animations";
+@import "settings/shadows";
+//
+// // Base Styles
+@import "_base";
+//
+// // Global Partials
+@import "header";
+
+// Views
+@import "views/loading";
+@import "views/slide";
+
+// Components
+@import "components/slides-nav";

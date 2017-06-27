@@ -1,0 +1,94 @@
+.slides-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  min-width: 800px;
+
+  @include linear-gradient(material-color("red"), material-color("red", "800"));
+
+  > .liquid-child {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 3.666em;
+    left: 0;
+    right: 0;
+    bottom: 3.666em;
+    overflow: auto;
+  }
+}
+
+.slide {
+  padding: 2em;
+  font-size: 1.5em;
+  color: material-color("red", "100");
+  text-align: center;
+  margin: 0 auto;
+
+  @include box-sizing(border-box);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: white;
+
+    .quiet {
+      font-weight: normal;
+      color: darken(material-color("red", "900"), 25%);
+    }
+  }
+
+  h1,
+  h2 {
+    letter-spacing: -0.06em;
+
+    .quiet {
+      letter-spacing: -0.1em;
+    }
+  }
+
+  a {
+    display: inline-block;
+    position: relative;
+    color: white;
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0.1em;
+      height: 2px;
+      background-color: material-color("red", "400");
+    }
+
+    &:hover,
+    &:active {
+      color: material-color("amber");
+    }
+
+    &.unspace-logo:after {
+      display: none;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  ol {
+    text-align: left;
+    font-size: 2em;
+  }
+
+  pre {
+    text-align: left;
+  }
+}
