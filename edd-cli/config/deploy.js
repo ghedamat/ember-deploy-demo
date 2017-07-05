@@ -24,26 +24,6 @@ module.exports = function(deployTarget) {
     };
   }
 
-  if (deployTarget === 'staging') {
-    ENV.build = {
-      environment: 'staging',
-    };
-
-    // configure other plugins for staging deploy target here
-    ENV.redis = {
-      keyPrefix: 'edd-cli:index',
-      allowOverwrite: true,
-      host: process.env['STAGING_HOST'],
-      port: process.env['STAGING_PORT'],
-    };
-    ENV.s3 = {
-      accessKeyId: process.env['AWS_ACCESS_KEY'],
-      secretAccessKey: process.env['AWS_SECRET_KEY'],
-      region: 'us-east-1',
-      bucket: 'edd-staging'
-    };
-  }
-
   if (deployTarget === 'production') {
     ENV.build = {
       environment: 'production',
