@@ -93,7 +93,7 @@ GEM
     net-ssh (2.9.2)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
-    rack (1.6.8)
+    rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.8)
