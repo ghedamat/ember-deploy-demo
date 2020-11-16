@@ -1,3 +1,10 @@
+# NOTE:
+This repository is DEPRECATED
+
+the code is stil valid but the app is no longer hosted and Rails has been updated serveral times since when this was built
+
+that said you can still look at it and explore the implementation!
+
 # Ember Deploy Demo
 
 An example project for deploying Ember applications.
@@ -12,7 +19,6 @@ This project puts together all the pieces and show an example workflow that allo
 
 ## Live Demo/Slides
 
-The project is currently hosted here: [Live Demo](http://ember-deploy-demo.ghedamat.com/)
 
 The server app serves the `index.html` from `ember-cli` and exposes an API endpoint that returns the slides.
 
